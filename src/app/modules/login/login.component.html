@@ -1,0 +1,58 @@
+<head>
+  <title>GoFrugal Integrations</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+</head>
+<body>
+
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-card-content">
+      <div class="login-form">
+        <img src="../../assets/logo.png" style="margin-top: 45px">
+        <div class="content-card">
+          <h4><b>Login to <span style="color:#059bfd">GoFrugal Integration</span></b></h4>
+          <h6>Enjoy the best of world products & solutions integrated with your favorite GoFrugal POS</h6>
+        </div>
+
+        <form class="login-form-input" fxLayout="column" fxLayoutAlign="start stretch" [formGroup]="userForm" (ngSubmit)="login()">
+          <div class="login-text-box">
+            <div class="col-12" style="padding: 0;">
+              <input class="custom-input" type="text" placeholder="Username" formControlName="uName">
+              <span class="focus-border"><i></i></span>
+            </div>
+            <div class="is-danger" *ngIf="userForm.get('uName').touched && userForm.get('uName').hasError('required')">
+              *UserName is required
+            </div>
+
+            <div class="col-12" style="padding: 0;">
+              <input class="custom-input" type="Password" placeholder="Password" formControlName="password">
+              <span class="focus-border"><i></i></span>
+            </div>
+            <div class="is-danger" *ngIf="userForm.get('password').touched && userForm.get('password').hasError('required')">
+              password is required
+            </div>
+
+          </div>
+          <div class="login-button">
+            <button class="btn btn-primary" type="submit" (click)="login()">Login</button>
+            <button class="btn btn-grey" type="submit">New Features</button>
+          </div>
+        </form>
+
+        <div class="connect-team">
+          <p><img src="../../assets/message.png" style="margin-right: 8px;margin-bottom: 2px">connect-team@gofrugal.com</p>
+          <p style="float: left;"><img src="../../assets/chat.png" style="margin-right: 8px;margin-bottom: 2px ">For 24 x 7 response center</p><a href="http://www.gofrugal.com/chatbot.html" target="_blank"><span> Live chat</span></a>
+        </div>
+      </div>
+      <div class="card-image">
+        <a class="btn play-button video" href="https://www.youtube.com/watch?v=_ALbHBGuXjs?list=PLz3XeUdRbWRWE0kZhsf6_sysZDN5KBein"><i class="fa fa-play"></i></a><img class="img-fluid" src="../../assets/background.jpg" alt="Card image cap"></div>
+    </div>
+  </div>
+</div>

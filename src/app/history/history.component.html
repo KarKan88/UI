@@ -1,0 +1,242 @@
+<div fxLayout="column" class="components-container-gt-xs" [ngClass.xs]="'components-container-xs'" fxLayoutGap="20px">
+
+    <div fxLayout="row" fxLayout.sm="column" fxLayout.lt-sm="column" fxLayoutAlign="start space-between" fxLayoutGap="10px">
+
+        <div fxFlex.xs="100" class="cdk-card-holder" fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100">
+
+            <!-- <mat-toolbar class="cards-header">
+						<h1 class="mat-headline center-align" >Example</h1>
+					</mat-toolbar> -->
+
+            <div fxLayoutAlign="space-around stretch" fxLayoutWrap>
+
+                <mat-tab-group fxFlexFill (selectedTabChange)="tabOperation($event)">
+
+                    <mat-tab label="Placed">
+                        <div class="component-preview">
+                            <pre style="white-space:pre-line;">
+
+<div fxLayout="column"  class="components-container-gt-xs"  [ngClass.xs]="'components-container-xs'"  fxLayoutGap="20px">
+
+    <!-- <table  matSort (matSortChange)="sortData($event)"> -->
+            <table>
+                <thead>
+                    <tr>
+                        <th  scope="col" *ngFor="let th of helpers?.header">{{th.name}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let record of data" >
+                        <td>
+                            {{record['orderNo']}}
+                        </td>
+                        <td>
+                                {{record['tableNo']}} 
+                        </td>
+                        <td>
+                            {{record['status']}}
+                        </td>
+                        <td>
+                            {{record['totalQuantity']}}
+                        </td>
+                        <td>
+                            {{record['totalAmount']}}
+                        </td>
+                        <td>
+                            
+                            09-Feb-2019
+                            <!-- {{record['createdAt']}} -->
+                        </td>
+                        <td>
+                            {{record['paymentStatus']}}
+                        </td>
+                        <td>
+                            <button mat-raised-button color="primary" (click)="changeStatus(record['orderNo'],record['userId'],'acknowledged')"> Acknowledge</button>
+                        </td>
+                        </tr>
+                        <tr *ngIf="data.length==0">
+                            <td style="text-align: center;">
+                            No records found
+                            </td>
+                        </tr>
+                </tbody>
+                <thead *matHeaderRowDef="displayedColumns"></thead>
+                <tr *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [length]="pageLength"
+                  [pageSize]="pageSize"
+                  [pageSizeOptions]="[1, 5, 10, 25, 100, 150, 200]"  (page)="next($event)">
+            </mat-paginator>
+
+</div>
+
+                                    </pre>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Acknowledged" *ngIf="!restrictMenu">
+                        <div class="component-preview">
+                            <pre style="white-space:pre-line;">
+                                <table >
+                                    <thead>
+                                        <tr>
+                                            <th  scope="col" *ngFor="let th of helpers?.header">{{th.name}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let record of data" >
+                                                <td>
+                                                        {{record['orderNo']}}
+                                                    </td>
+                                                    <td>
+                                                            {{record['tableNo']}}
+                                                    </td>
+                                                    <td>
+                                                        {{record['status']}}
+                                                    </td>
+                                                    <td>
+                                                        {{record['totalQuantity']}}
+                                                    </td>
+                                                    <td>
+                                                        {{record['totalAmount']}}
+                                                    </td>
+                                                    <td>
+                                                        {{record['createdAt']}}
+                                                    </td>
+                                                    <td>
+                                                        {{record['paymentStatus']}}
+                                                    </td>
+                                            <td>
+                                                <button mat-raised-button color="primary" (click)="changeStatus(record['orderNo'],record['userId'],'progress')"> To progress</button>
+                                            </td>
+                                            </tr>
+                                            <tr *ngIf="rows?.length==0 && status==false">
+                                                <td [colSpan]="header.length" style="text-align: center;">
+                                                No records found
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                    <thead *matHeaderRowDef="displayedColumns"></thead>
+                                    <tr *matRowDef="let row; columns: displayedColumns;"></tr>
+                                </table>
+                                <mat-paginator [length]="pageLength"
+                                      [pageSize]="pageSize"
+                                      [pageSizeOptions]="[1, 5, 10, 25, 100, 150, 200]"  (page)="next($event)">
+                                </mat-paginator>
+                            </pre>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="In progress" *ngIf="!restrictMenu">
+                        <div class="component-preview">
+                            <pre style="white-space:pre-line;">
+                                    <table >
+                                            <thead>
+                                                <tr>
+                                                    <th  scope="col" *ngFor="let th of helpers?.header">{{th.name}}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let record of data" >
+                                                        <td>
+                                                                {{record['orderNo']}}
+                                                            </td>
+                                                            <td>
+                                                                    {{record['tableNo']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['status']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['totalQuantity']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['totalAmount']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['createdAt']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['paymentStatus']}}
+                                                            </td>
+                                                    <td>
+                                                        <button mat-raised-button color="primary" (click)="changeStatus(record['orderNo'],record['userId'],'checkout')">Check out</button>
+                                                    </td>
+                                                    </tr>
+                                                    <tr *ngIf="rows?.length==0 && status==false">
+                                                        <td [colSpan]="header.length" style="text-align: center;">
+                                                        No records found
+                                                        </td>
+                                                    </tr>
+                                            </tbody>
+                                            <thead *matHeaderRowDef="displayedColumns"></thead>
+                                            <tr *matRowDef="let row; columns: displayedColumns;"></tr>
+                                        </table>
+                                        <mat-paginator [length]="pageLength"
+                                              [pageSize]="pageSize"
+                                              [pageSizeOptions]="[1, 5, 10, 25, 100, 150, 200]"  (page)="next($event)">
+                                        </mat-paginator>
+                            </pre>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Completed" *ngIf="!restrictMenu">
+                        <div class="component-preview">
+                            <pre style="white-space:pre-line;">
+                                    <table >
+                                            <thead>
+                                                <tr>
+                                                    <th  scope="col" *ngFor="let th of helpers?.header">{{th.name}}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let record of data" >
+                                                        <td>
+                                                                {{record['orderNo']}}
+                                                            </td>
+                                                            <td>
+                                                                    {{record['tableNo']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['status']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['totalQuantity']}}
+                                                            </td>
+                                                            <td>
+                                                                {{record['totalAmount']}}
+                                                            </td>
+                                                            <td>
+                                                                    <mat-icon color="success" class="space">calendar_today</mat-icon> 
+                                                                    {{record['createdAt'] }} 
+                                                            </td>
+                                                            <td>
+                                                                Paid
+                                                                <!-- {{record['paymentStatus']}} -->
+                                                            </td>
+                                                    <td>
+                                                            <mat-icon color="success" class="space">check_circle</mat-icon>
+                                                        <!-- <button (click)="changeStatus(record['orderNo'],record['userId'])"> completed</button> -->
+                                                    </td>
+                                                    </tr>
+                                                    <tr *ngIf="rows?.length==0 && status==false">
+                                                        <td [colSpan]="header.length" style="text-align: center;">
+                                                        No records found
+                                                        </td>
+                                                    </tr>
+                                            </tbody>
+                                            <thead *matHeaderRowDef="displayedColumns"></thead>
+                                            <tr *matRowDef="let row; columns: displayedColumns;"></tr>
+                                        </table>
+                                        <mat-paginator [length]="pageLength"
+                                              [pageSize]="pageSize"
+                                              [pageSizeOptions]="[1, 5, 10, 25, 100, 150, 200]"  (page)="next($event)">
+                                        </mat-paginator>
+                            </pre>
+                        </div>
+                    </mat-tab>
+
+                </mat-tab-group>
+
+            </div>
+        </div>
+
+    </div>
+</div>
